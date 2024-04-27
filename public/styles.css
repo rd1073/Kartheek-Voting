@@ -1,0 +1,52 @@
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(1692357951635.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    header, footer {
+        font-size: large;
+        text-shadow: 2px 2px 8px rgb(222, 84, 84);
+        color: aliceblue;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    .candidate {
+        margin-bottom: 1rem;
+        font-size: large;
+    }
+
+    input[type="radio"] {
+        margin-right: 0.5rem;
+    }
+
+    button {
+        background-color: white;
+        color: black;
+        font-size: large;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }

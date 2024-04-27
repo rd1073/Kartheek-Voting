@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Voting System - Vote</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Vote in Digital Voting System</h1>
+    </header>
+    <main>
+      <section id="voting">
+        <h2
+          style="
+            color: aliceblue;
+            font-size: xx-large;
+            text-shadow: 2px 2px 8px goldenrod;
+          "
+        >
+          Choose Your Candidate
+        </h2>
+        <form id="votingForm">
+          <div class="candidate">
+            <input
+              type="radio"
+              id="candidate1"
+              name="candidate"
+              value="candidate1"
+            />
+            <img
+              style="display: block"
+              src="download.png"
+              alt="Narendra Modi"
+              width="100px"
+              height="100px"
+            />
+            <label
+              style="color: aliceblue; padding-right: 50px; font-size: x-large"
+              for="candidate1"
+              ><b>BJP</b></label
+            >
+          </div>
+          <div class="candidate">
+            <input
+              type="radio"
+              id="candidate2"
+              name="candidate"
+              value="candidate2"
+            />
+            <img
+              style="display: block"
+              src="download (1).png"
+              alt="Congress"
+              width="100px"
+              height="100px"
+            />
+            <label
+              style="color: aliceblue; padding-right: 50px; font-size: x-large"
+              for="candidate2"
+              ><b>Congress</b></label
+            >
+          </div>
+          <!-- Add more candidates as needed -->
+          <button type="submit">Vote</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Digital Voting System</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

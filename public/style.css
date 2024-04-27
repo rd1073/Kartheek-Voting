@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("1692357951635.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+header, footer {
+    font-size: large;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    text-shadow: 2px 2px 8px red;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

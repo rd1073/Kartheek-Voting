@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="votingApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Voting System - Register</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Register for Digital Voting System</h1>
+</header>
+<main ng-controller="RegisterController as regCtrl">
+    <section id="register">
+        <h2 style="color: aliceblue">Create an Account</h2>
+        <form id="registerForm" action="/register" method="POST" ng-submit="regCtrl.register()">
+            <input type="text" ng-model="regCtrl.username" id="username" placeholder="Username" required />
+            <input type="email" ng-model="regCtrl.email" id="email" placeholder="Email" required />
+            <input type="password" ng-model="regCtrl.password" id="password" placeholder="Password" required />
+            <input type="text" ng-model="regCtrl.adhaarID" id="aadhar" placeholder="Adhaar ID" />
+            <input type="text" ng-model="regCtrl.voterID" id="voter" placeholder="Voter ID" />
+            <input type="password" ng-model="regCtrl.confirmPassword" id="confirmpassword" placeholder="Confirm Password" required />
+            <button type="submit">Register</button>
+        </form>
+        <p style="color: aliceblue">
+            Already have an account?
+            <a href="hobbies.html" style="color: aliceblue; text-shadow: 2px 2px 8px red" >Login here</a>.
+        </p>
+    </section>
+    <script src="../public//script.js"> </script>
+
+</main>
+<footer>
+    <p>&copy; 2024 Digital Voting System</p>
+</footer>
+
+<script>
+    angular.module('votingApp', [])
+        .controller('RegisterController', ['$window', function($window) {
+            var vm = this;
+            vm.register = function() {
+                // Check if passwords match
+                if (vm.password !== vm.confirmPassword) {
+                    alert("Passwords do not match. Please re-enter your password.");
+                    return;
+                }
+                // Save registration details to localStorage or perform further actions
+                // For demonstration, let's just log the registration details
+                console.log("Registration Details:");
+                console.log("Username:", vm.username);
+                console.log("Email:", vm.email);
+                console.log("Password:", vm.password);
+                console.log("Adhaar ID:", vm.adhaarID);
+                console.log("Voter ID:", vm.voterID);
+                
+                // Redirect to hobbies page
+                //$window.location.href = "hobbies.html";
+                return false; // Ensure the form doesn't submit before redirection
+            };
+        }]);
+</script>
+</body>
+</html>
