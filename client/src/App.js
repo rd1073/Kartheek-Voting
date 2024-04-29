@@ -6,8 +6,7 @@ import Login from './components/login';
 import Dashboard from './components/dasboard';
 import Voting from './components/dasboard';
 import ResultsPage from './components/result';
-import Winner from './components/Winner';
-
+ 
 
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Voting/>} />
-          <Route path="/winner" element={<Winner/>} />
+          <Route path="/winner" element={<ResultsPage/>} />
 
           <Route path="/results/:winner" render={(props) => <ResultsPage {...props} />} />
 

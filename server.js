@@ -5,7 +5,8 @@ const conn=require("./config/db")
 const app = express();
 const cors = require('cors');
 const authRoutes=require("./routes/authRoute")
- 
+const voteRoutes=require("./routes/voteRoutes")
+
 
 
 
@@ -26,6 +27,8 @@ app.use(cors());
 
 
 app.use("/auth", authRoutes);
+app.use("/voter", voteRoutes);
+
  
 
 

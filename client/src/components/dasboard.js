@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import '../components/voting.css'
 import congress from '../components/download (1).png';
@@ -15,7 +16,7 @@ function Voting() {
 
         const navigate = useNavigate();
 
-    const handleVote = async (candidateId) => {
+   /* const handleVote = async (candidateId) => {
         try {
             // Send vote submission request to backend
             // Update vote counts based on the response
@@ -34,20 +35,23 @@ function Voting() {
         }
     };
 
+    */
+
+
+    // Frontend code
+const handleVote = async (candidate) => {
+    try {
+        await axios.post('http://localhost:5000/voter/vote', { candidate });
+        console.log('Vote recorded successfully');
+        window.location.reload();
+
+    } catch (error) {
+        console.error('Error recording vote:', error);
+    }
+};
+
     const checkResults = () => {
-        // Determine the winner
-        const winner = Object.keys(voteCounts).reduce((a, b) => voteCounts[a] > voteCounts[b] ? a : b);
-        console.log(winner)
-        console.log(voteCounts)
-        // Clear the votes
         
-        
-        localStorage.setItem('voteCounts', JSON.stringify({}));
-
-        setVoteCounts({ candidate1: 0, candidate2: 0 });
-        console.log(voteCounts)
-
-        // Navigate to the results page with the winner as a parameter
         navigate(`/winner`);
     };
 

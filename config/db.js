@@ -45,7 +45,19 @@ const UserSchema=new mongoose.Schema({
 
 const User = conn.model('User', UserSchema);
 
- 
+const voteSchema = new mongoose.Schema({
+    candidate1: {
+        type: Number,
+        default: 0
+    },
+    candidate2: {
+        type: Number,
+        default: 0
+    }
+});
+
+// Create a model for votes using the schema
+const Vote = conn.model('Vote', voteSchema);
 
 
-module.exports = { conn, User};
+module.exports = { conn, User, Vote};
