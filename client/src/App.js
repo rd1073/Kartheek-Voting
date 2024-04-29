@@ -6,11 +6,16 @@ import Login from './components/login';
 import Dashboard from './components/dasboard';
 import Voting from './components/dasboard';
 import ResultsPage from './components/result';
- 
+import { AuthProvider, useAuth } from '../src/context/authContext';
+
 
 
 function App() {
+  
+
+
   return (
+    <AuthProvider>
     <div className="App">
       <Router>
       <div>
@@ -23,9 +28,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Voting/>} />
           <Route path="/winner" element={<ResultsPage/>} />
-
-          <Route path="/results/:winner" render={(props) => <ResultsPage {...props} />} />
-
+  
+ 
 
            
           
@@ -42,6 +46,7 @@ function App() {
     </Router>
           
     </div>
+    </AuthProvider>
   );
 }
 

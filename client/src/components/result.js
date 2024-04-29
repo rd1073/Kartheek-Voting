@@ -23,6 +23,8 @@ function ResultsPage() {
 
     const handleLogout = () => {
         // Implement logic to logout
+        sessionStorage.removeItem('userInfo');
+
         navigate(`/login`);
     };
 

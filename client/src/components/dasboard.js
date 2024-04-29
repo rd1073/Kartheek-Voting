@@ -5,16 +5,28 @@ import '../components/voting.css'
 import congress from '../components/download (1).png';
 import bjp from '../components/download.png'
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from "../context/authContext";
+
 
 function Voting() {
     const [voteCounts, setVoteCounts] = useState(() => {
         const storedCounts = JSON.parse(localStorage.getItem('voteCounts'));
         return storedCounts || { candidate1: 0, candidate2: 0 };
     });
+
+    const [auth] = useAuth(); 
+  const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  const { username, token } = userInfo || {};
  
         console.log('Vote counts updated:', voteCounts);
 
         const navigate = useNavigate();
+
+        if ( !token) {
+            // Redirect to login page if user info or token is missing
+            navigate(`/login`);
+          }
+        
 
    /* const handleVote = async (candidateId) => {
         try {

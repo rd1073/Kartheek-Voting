@@ -1,5 +1,5 @@
 const { User }=require("../config/db")
-//const generateToken = require("../config/generateToken");
+const generateToken = require("../config/generateToken");
 const bcrypt = require("bcrypt");
 
  
@@ -92,12 +92,12 @@ const Register = async (req, res) => {
 
         if (user && (await bcrypt.compare(password, user.password))) {
           console.log("login succesful");
-          //const token= generateToken(user._id)
+          const token= generateToken(user._id)
           //res.cookie("token", token);
           res.status(200).json({
             _id: user._id,
             username: user.username,
-            //token
+            token
         });
            
         } else{

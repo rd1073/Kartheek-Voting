@@ -2,9 +2,13 @@ import React from 'react';
 import { useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/authContext';
+
+
 
 function Login() {
     const [identifier, setIdentifier] = useState('');  
+    const [ setAuth, setLog ] = useAuth();
 
     const [password, setPassword] = useState('');
 
@@ -37,6 +41,14 @@ function Login() {
                 },
                 config
             );
+
+            if (res && res.data.success) {
+                setAuth({
+                  user: res.data.user,
+                  token: res.data.token,
+                });
+                setLog(true);
+              }
     
             console.log("Login successful");
             sessionStorage.setItem("userInfo", JSON.stringify(res.data));
