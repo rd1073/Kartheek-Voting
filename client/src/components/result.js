@@ -2,10 +2,29 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import congress from '../components/download (1).png';
 import bjp from '../components/download.png'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function ResultsPage() {
     const [winner, setWinner] = useState('');
     const [votes, setVotes] = useState({});
+    const navigate = useNavigate();
+
+    const handleRestartVoting = async() => {
+        try {
+            await axios.post('http://localhost:5000/voter/restart-voting');
+            navigate(`/dashboard`);// Redirect to the voting page
+        } catch (error) {
+            console.error('Error restarting voting:', error);
+            // Handle error
+        }
+        // Implement logic to restart voting
+    };
+
+    const handleLogout = () => {
+        // Implement logic to logout
+        navigate(`/login`);
+    };
 
     useEffect(() => {
         async function fetchResults() {
@@ -36,6 +55,12 @@ function ResultsPage() {
                 {winner === 'Congress' && <img src={congress} alt="Congress" style={{ width: '200px', height: '200px' }} />}
             </div>
         </div>
+        <div style={{ position: 'absolute', bottom: '10px', left: '10px' }}>
+                <button onClick={handleRestartVoting}>Restart Voting</button>
+            </div>
+            <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+                <button onClick={handleLogout}>Logout</button>
+            </div>
     </div>
     );
 }

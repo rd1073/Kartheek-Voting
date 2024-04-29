@@ -38,5 +38,16 @@ router.get('/results', async (req, res) => {
     }
 });
 
+router.post('/restart-voting', async (req, res) => {
+    try {
+        // Clear all votes
+        await Vote.updateMany({}, { $set: { candidate1: 0, candidate2: 0 } });
+        res.status(200).json({ message: 'Voting reset successful' });
+    } catch (error) {
+        console.error('Error resetting voting:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 
 module.exports=  router ;
