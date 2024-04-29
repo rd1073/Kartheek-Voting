@@ -18,15 +18,17 @@ function Voting() {
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
   const { username, token } = userInfo || {};
  
-        console.log('Vote counts updated:', voteCounts);
-
+ 
         const navigate = useNavigate();
 
-        if ( !token) {
-            // Redirect to login page if user info or token is missing
-            navigate(`/login`);
-          }
-        
+       /* useEffect(() => {
+            // Check if the token is not present in the authentication context
+            if (!auth?.token) {
+              // Redirect to the login page
+              navigate("/login");
+            }
+          }, [auth, navigate]);
+        */
 
    /* const handleVote = async (candidateId) => {
         try {

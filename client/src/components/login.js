@@ -44,7 +44,7 @@ function Login() {
 
             if (res && res.data.success) {
                 setAuth({
-                  user: res.data.user,
+                  user: res.data.username,
                   token: res.data.token,
                 });
                 setLog(true);

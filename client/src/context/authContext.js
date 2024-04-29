@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
      
     if (data) {
       const parseData = JSON.parse(data);
-     console.log(parseData)
+    // console.log(parseData)
       setAuth({
         //...auth,
         user: parseData.username,
