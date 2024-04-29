@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import congress from '../components/download (1).png';
+import bjp from '../components/download.png'
 
 function ResultsPage() {
     const [winner, setWinner] = useState('');
@@ -21,12 +23,20 @@ function ResultsPage() {
     }, []);
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h1>Results</h1>
-            <p>The winner is: <strong>{winner}</strong></p>
-            <p>Votes for BJP: {votes.candidate1}</p>
-            <p>Votes for Congress: {votes.candidate2}</p>
+        <div style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>
+        <h1>Results</h1>
+        <p>The winner is: <strong>{winner}</strong></p>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ marginRight: '50px' }}>
+                <p>Votes for BJP: {votes.candidate1}</p>
+                {winner === 'BJP' && <img src={bjp} alt="BJP" style={{ width: '200px', height: '200px' }} />}
+            </div>
+            <div>
+                <p>Votes for Congress: {votes.candidate2}</p>
+                {winner === 'Congress' && <img src={congress} alt="Congress" style={{ width: '200px', height: '200px' }} />}
+            </div>
         </div>
+    </div>
     );
 }
 
